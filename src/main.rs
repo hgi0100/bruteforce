@@ -1,6 +1,6 @@
 // bruteforce
-// 20/02/24
-// Neil Crago <n.j.crago@gmail.com>
+// 27/02/24
+// Neil Crago
 //
 // A program to explore Combinatorics using a Brute Force Algorithm
 // to solve the TSP (Travelling Salesman Problem)

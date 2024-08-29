@@ -1,6 +1,6 @@
 // bruteforce
-// 20/02/24
-// Neil Crago <n.j.crago@gmail.com>
+// 27/02/24
+// Neil Crago
 //
 // A program to explore Combinatorics using a Brute Force Algorithm
 // to solve the TSP (Travelling Salesman Problem)
@@ -24,12 +24,15 @@ fn distance(city1: &City, city2: &City) -> f64 {
 
 // This function calculates the total distance of a given tour
 fn tour_length(cities: &[City], order: &[usize]) -> f64 {
+    
     let mut total_distance = 0.0;
+    
     for i in 0..cities.len() - 1 {
         let current_city = &cities[order[i]];
         let next_city = &cities[order[i + 1]];
         total_distance += distance(current_city, next_city);
     }
+    
     // Add distance from last city back to first city to complete the loop
     total_distance += distance(&cities[order[cities.len() - 1]], &cities[order[0]]);
     total_distance
@@ -37,6 +40,7 @@ fn tour_length(cities: &[City], order: &[usize]) -> f64 {
 
 // This function implements a simple brute-force approach to find the shortest tour
 fn brute_force_tsp(cities: &[City]) -> (f64, Vec<usize>) {
+    
     let mut shortest_tour_length = f64::INFINITY;
     let mut shortest_tour: Vec<usize> = Vec::new();
 
@@ -62,6 +66,7 @@ fn permutations(n: usize) -> Vec<Vec<usize>> {
     }
     let mut permutations_vec = Vec::new();
     let sub_perms = permutations(n - 1);
+    
     for i in 0..n {
         for perm in &sub_perms {
             let mut new_perm = perm.clone();
@@ -74,6 +79,7 @@ fn permutations(n: usize) -> Vec<Vec<usize>> {
 
 
 fn main() {
+    
     // Sample set of city coordinates
     let cities = vec![
         City { x: 1.0, y: 2.0 },
